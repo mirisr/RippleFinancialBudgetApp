@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0766B61C6EB3E500BA4413 /* AddCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0766B51C6EB3E500BA4413 /* AddCategoryTableViewCell.swift */; };
 		EB102A431C6ACF9B00943AB9 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB102A421C6ACF9B00943AB9 /* PlanViewController.swift */; };
 		EB4652B91C6BF83B00C20577 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4652B81C6BF83A00C20577 /* Category.swift */; };
 		EB4652BB1C6BF86F00C20577 /* CategoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4652BA1C6BF86F00C20577 /* CategoryInfo.swift */; };
+		EB6564A61C6EA1DF00882A2E /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6564A51C6EA1DF00882A2E /* AddCategoryViewController.swift */; };
 		EB9F1A7C1C6AAE0B00406FE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9F1A7B1C6AAE0B00406FE0 /* LoginViewController.swift */; };
 		EBA437B61C69BD1300B6BDA4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA437B51C69BD1300B6BDA4 /* CreateAccountViewController.swift */; };
 		EBA437BD1C6A679600B6BDA4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA437BC1C6A679600B6BDA4 /* User.swift */; };
@@ -40,9 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB0766B51C6EB3E500BA4413 /* AddCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		EB102A421C6ACF9B00943AB9 /* PlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		EB4652B81C6BF83A00C20577 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EB4652BA1C6BF86F00C20577 /* CategoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryInfo.swift; sourceTree = "<group>"; };
+		EB6564A51C6EA1DF00882A2E /* AddCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		EB9F1A7B1C6AAE0B00406FE0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EBA437B51C69BD1300B6BDA4 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		EBA437BC1C6A679600B6BDA4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -99,10 +103,12 @@
 		EBA437B81C6A667000B6BDA4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB0766B51C6EB3E500BA4413 /* AddCategoryTableViewCell.swift */,
 				EBD94A411C69AFEB00EE12F1 /* ViewController.swift */,
 				EBA437B51C69BD1300B6BDA4 /* CreateAccountViewController.swift */,
 				EB9F1A7B1C6AAE0B00406FE0 /* LoginViewController.swift */,
 				EB102A421C6ACF9B00943AB9 /* PlanViewController.swift */,
+				EB6564A51C6EA1DF00882A2E /* AddCategoryViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -295,8 +301,10 @@
 			files = (
 				EB9F1A7C1C6AAE0B00406FE0 /* LoginViewController.swift in Sources */,
 				EBA437B61C69BD1300B6BDA4 /* CreateAccountViewController.swift in Sources */,
+				EB6564A61C6EA1DF00882A2E /* AddCategoryViewController.swift in Sources */,
 				EB4652BB1C6BF86F00C20577 /* CategoryInfo.swift in Sources */,
 				EBD94A421C69AFEB00EE12F1 /* ViewController.swift in Sources */,
+				EB0766B61C6EB3E500BA4413 /* AddCategoryTableViewCell.swift in Sources */,
 				EB102A431C6ACF9B00943AB9 /* PlanViewController.swift in Sources */,
 				EBA437BD1C6A679600B6BDA4 /* User.swift in Sources */,
 				EBD94A401C69AFEB00EE12F1 /* AppDelegate.swift in Sources */,

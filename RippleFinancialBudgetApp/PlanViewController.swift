@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CategoryInfoProtocal  {
+class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate, CategoryInfoProtocal  {
     
     //Properties
     
@@ -21,8 +21,6 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //set delegates and initialize homeModel
         
         self.listCategoriesView.delegate = self
         self.listCategoriesView.dataSource = self
@@ -39,6 +37,10 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.listCategoriesView.reloadData()
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of feed items
         print("count: \(feedItems.count)")
@@ -46,26 +48,17 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Expenses"
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        // Retrieve cell
-        let cellIdentifier: String = "CategoryCell"
-        let myCell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)!
         
         if ( indexPath.row != feedItems.count) {
             
-            if(myCell.subviews.count > 0) {
-                for view in myCell.subviews {
-                    if view.isKindOfClass(UIButton) {
-                        view.removeFromSuperview()
-                    }
-                    if view.isKindOfClass(UITextField) {
-                        view.removeFromSuperview()
-                    }
-                }
-            }
-         
-         
+            let myCell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CategoryCell")
+            
             // Get the category to be shown
             let category: Category = feedItems[indexPath.row]
             
@@ -74,7 +67,7 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // Get references to labels of cell
             myCell.textLabel!.text = category.name!
             myCell.textLabel!.font = UIFont(name: "Helvetica Neue", size: 14.0)
-            // Add Budget Amount in a label 
+            
             //Programmatically create label
             let newLabel = UILabel(frame: CGRectMake(290.0, 5.0, 70.0, 30.0))
             newLabel.tag = 1
@@ -87,25 +80,21 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let budgetAmountStr = String(format: "%.02f", category.budgetAmount!)
             newLabel.text = "$\(budgetAmountStr)"
             
-        } else if (indexPath.row == feedItems.count) {
+            return myCell
             
-            //myCell.textLabel!.text = "Add New Category"
+        } else {
             
-            // Programmatically create a text field
+            let myCell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "AddCategoryCell")
             
-            /*
-            let textField: UITextField = UITextField()
-            textField.frame = CGRectMake(10, 5, 270, 30)
-            //textField.backgroundColor = UIColor.lightGrayColor()
-            textField.layer.borderWidth = 1
-            textField.layer.borderColor = UIColor.lightGrayColor().CGColor
-            textField.layer.cornerRadius = 5
-            textField.placeholder = " New Category"
-            textField.font = UIFont(name: "Helvetica Neue", size: 14)
-            textField.clearsOnBeginEditing = true
-            textField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
-            myCell.addSubview(textField)
-            */
+            //Programmatically create label
+            let newLabel = UILabel(frame: CGRectMake(210.0, 5.0, 120.0, 30.0))
+            newLabel.tag = 1
+            newLabel.font = UIFont(name: "Helvetica Neue", size: 14.0)
+            newLabel.textColor = UIColor.darkGrayColor()
+            newLabel.textAlignment = NSTextAlignment.Right
+            newLabel.text = "Add New Cateogry"
+            myCell.addSubview(newLabel)
+            
             
             // Programmatically create an ADD button
             let button   = UIButton(type: UIButtonType.System) as UIButton
@@ -113,27 +102,45 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //button.backgroundColor = UIColor.greenColor()
             button.setTitle("+", forState: UIControlState.Normal)
             button.titleLabel!.font =  UIFont(name: "Helvetica Neue", size: 24)
-            button.addTarget(self, action: "AddCategoryClicked", forControlEvents: UIControlEvents.TouchUpInside)
+            button.addTarget(self, action: "AddCategoryClicked:", forControlEvents: UIControlEvents.TouchUpInside)
             myCell.addSubview(button)
-
-
+            
+            return myCell
+            
         }
         
-        return myCell
     }
     
-    func AddCategoryClicked(sender:UIButton)
-    {
+    
+    func AddCategoryClicked(sender: UIButton) {
         
-        self.performSegueWithIdentifier("AddCategory", sender: self)
-        /*for view in listCategoriesView.subviews {
-            if view.isKindOfClass(UITextField) {
-                let textfield : UITextField = view
-                var newCategoryName
+        performSegueWithIdentifier("AddCategory", sender: self)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "AddCategory" {
+            let vc = segue.destinationViewController as! UIViewController
+            
+            let controller = vc.popoverPresentationController
+            
+            if controller != nil {
+                
+                controller?.delegate.self
                 
             }
-        }*/
-
+            vc.preferredContentSize = CGSizeMake(400, 250)
+            controller?.permittedArrowDirections = UIPopoverArrowDirection()
+            controller?.delegate = self
+            controller?.sourceView = self.view
+            controller?.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds) - 20, CGRectGetMidY(self.view.bounds), 0,0)
+            
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
     
         
