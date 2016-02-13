@@ -14,6 +14,7 @@ class Category: NSObject
     
     //variables
     
+    var id: String?
     var name: String?
     var budgetAmount: Double?
     
@@ -29,6 +30,10 @@ class Category: NSObject
     {
         self.name = categoryName
         self.budgetAmount = budgetAmount
+    }
+    
+    func setID(id: String) {
+        self.id = id
     }
     
     override var description: String

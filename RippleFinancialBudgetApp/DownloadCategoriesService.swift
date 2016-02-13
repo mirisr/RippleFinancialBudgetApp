@@ -9,16 +9,16 @@
 
 import Foundation
 
-protocol CategoryInfoProtocal: class {
+protocol DownloadCategoriesServiceProtocal: class {
     func itemsDownloaded(items: Array<Category>)
 }
 
 
-class CategoryInfo: NSObject, NSURLSessionDataDelegate {
+class DownloadCategoriesService: NSObject, NSURLSessionDataDelegate {
     
     //properties
     
-    weak var delegate: CategoryInfoProtocal!
+    weak var delegate: DownloadCategoriesServiceProtocal!
     
     var data : NSMutableData = NSMutableData()
     
@@ -101,6 +101,10 @@ class CategoryInfo: NSObject, NSURLSessionDataDelegate {
                 
                 category.budgetAmount = Double(budgetAmountStr)!
                 
+                let categoryID = (json["CategoryID"] as AnyObject? as? String) ?? ""
+                //print ("CATEGORY ID:\(categoryID)")
+                
+                category.setID(categoryID)
                 //print("budget amount: \(category.budgetAmount!)")
                 
                 allCategories.append(category)

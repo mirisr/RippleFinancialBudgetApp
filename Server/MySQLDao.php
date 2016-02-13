@@ -97,6 +97,22 @@ public function addCategory($userID, $categoryName, $budgetAmount)
 
     return $returnValue;
 }
+    
+public function deleteCategory($userID, $categoryID)
+{
+    $sql = "delete from Categories where UserID =".$userID." and
+    CategoryID = ". $categoryID;
+    
+    $statement = $this->conn->prepare($sql);
+    
+    if (!$statement)
+        throw new Exception($statement->error);
+    
+    $returnValue = $statement->execute();
+    
+    return $returnValue;
+
+}
 
 }
 ?>

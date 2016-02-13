@@ -8,11 +8,11 @@
 
 import UIKit
 
-class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate, CategoryInfoProtocal, AddCategoryProtocal  {
+class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate, DownloadCategoriesServiceProtocal, AddCategoryProtocal, EditCategoriesProtocal  {
     
     //Properties
     
-    var feedItems: Array<Category> = Array<Category>()
+    var allCateogries: Array<Category> = Array<Category>()
     //var selectedCateogry : Category = Category()
     
     @IBOutlet weak var listCategoriesView: UITableView!
@@ -25,10 +25,14 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.listCategoriesView.delegate = self
         self.listCategoriesView.dataSource = self
         
-        let categoryInfo = CategoryInfo()
-        categoryInfo.delegate = self
-        categoryInfo.downloadCategories()
+        let downloadCategoryService = DownloadCategoriesService()
+        downloadCategoryService.delegate = self
+        downloadCategoryService.downloadCategories()
         
+    }
+    
+    func editedCategories() {
+        self.viewDidLoad()
     }
     
     func categoryAdded() {
@@ -37,7 +41,7 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func itemsDownloaded(items: Array<Category>) {
         
-        feedItems = items
+        allCateogries = items
         self.listCategoriesView.reloadData()
     }
     
@@ -47,8 +51,8 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of feed items
-        print("count: \(feedItems.count)")
-        return feedItems.count + 1
+        print("count: \(allCateogries.count)")
+        return allCateogries.count + 1
         
     }
     
@@ -59,7 +63,7 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         
-        if ( indexPath.row != feedItems.count) {
+        if ( indexPath.row != allCateogries.count) {
             return true
         }
         return false
@@ -67,12 +71,13 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
-        
-
-        
         let delete = UITableViewRowAction(style: .Destructive, title: "Remove") { (action, indexPath) in
             
-            self.feedItems.removeAtIndex(indexPath.row)
+            let editCategoriesService = EditCategoriesService()
+            editCategoriesService.delegate = self
+            editCategoriesService.DeleteCategory(self.allCateogries[indexPath.row].id!)
+            
+            self.allCateogries.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
         
@@ -87,12 +92,12 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        if ( indexPath.row != feedItems.count) {
+        if ( indexPath.row != allCateogries.count) {
             
             let myCell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CategoryCell")
             
             // Get the category to be shown
-            let category: Category = feedItems[indexPath.row]
+            let category: Category = allCateogries[indexPath.row]
             
             print("Category::\(category.name!)")
             
