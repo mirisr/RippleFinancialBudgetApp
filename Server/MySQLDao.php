@@ -82,6 +82,21 @@ public function registerUser($email, $password)
 
     return $returnValue;
 }
+    
+public function addCategory($userID, $categoryName, $budgetAmount)
+{
+    $sql = "insert into Categories set UserID=?, CategoryName=?, BudgetAmount=?";
+    
+    $statement = $this->conn->prepare($sql);
+
+    if (!$statement)
+        throw new Exception($statement->error);
+
+    $statement->bind_param("isd", $userID, $categoryName, $budgetAmount);
+    $returnValue = $statement->execute();
+
+    return $returnValue;
+}
 
 }
 ?>

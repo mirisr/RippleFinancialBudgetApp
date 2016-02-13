@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate, CategoryInfoProtocal  {
+class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate, CategoryInfoProtocal, AddCategoryProtocal  {
     
     //Properties
     
@@ -29,6 +29,10 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
         categoryInfo.delegate = self
         categoryInfo.downloadCategories()
         
+    }
+    
+    func categoryAdded() {
+        self.viewDidLoad()
     }
     
     func itemsDownloaded(items: Array<Category>) {
@@ -121,7 +125,14 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "AddCategory" {
+            
+            //categoryInfo.delegate = self
+
             let vc = segue.destinationViewController as! UIViewController
+            
+            let addCategoryObg = segue.destinationViewController as! AddCategoryViewController
+            
+            addCategoryObg.delegate = self
             
             let controller = vc.popoverPresentationController
             

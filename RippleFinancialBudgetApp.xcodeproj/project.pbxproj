@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB0766B61C6EB3E500BA4413 /* AddCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0766B51C6EB3E500BA4413 /* AddCategoryTableViewCell.swift */; };
 		EB102A431C6ACF9B00943AB9 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB102A421C6ACF9B00943AB9 /* PlanViewController.swift */; };
 		EB4652B91C6BF83B00C20577 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4652B81C6BF83A00C20577 /* Category.swift */; };
 		EB4652BB1C6BF86F00C20577 /* CategoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4652BA1C6BF86F00C20577 /* CategoryInfo.swift */; };
@@ -42,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EB0766B51C6EB3E500BA4413 /* AddCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		EB102A421C6ACF9B00943AB9 /* PlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		EB4652B81C6BF83A00C20577 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		EB4652BA1C6BF86F00C20577 /* CategoryInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryInfo.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		EBA437B81C6A667000B6BDA4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB0766B51C6EB3E500BA4413 /* AddCategoryTableViewCell.swift */,
 				EBD94A411C69AFEB00EE12F1 /* ViewController.swift */,
 				EBA437B51C69BD1300B6BDA4 /* CreateAccountViewController.swift */,
 				EB9F1A7B1C6AAE0B00406FE0 /* LoginViewController.swift */,
@@ -304,7 +301,6 @@
 				EB6564A61C6EA1DF00882A2E /* AddCategoryViewController.swift in Sources */,
 				EB4652BB1C6BF86F00C20577 /* CategoryInfo.swift in Sources */,
 				EBD94A421C69AFEB00EE12F1 /* ViewController.swift in Sources */,
-				EB0766B61C6EB3E500BA4413 /* AddCategoryTableViewCell.swift in Sources */,
 				EB102A431C6ACF9B00943AB9 /* PlanViewController.swift in Sources */,
 				EBA437BD1C6A679600B6BDA4 /* User.swift in Sources */,
 				EBD94A401C69AFEB00EE12F1 /* AppDelegate.swift in Sources */,
