@@ -13,11 +13,10 @@ class CurrentActivityViewController: UIViewController , UICollectionViewDelegate
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        collectionView.registerClass(CurrentActivityViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
         
         collectionView.backgroundColor = UIColor.whiteColor()
       
@@ -33,10 +32,18 @@ class CurrentActivityViewController: UIViewController , UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CurrentActivityViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CategoryActivityViewCell", forIndexPath: indexPath) as! CurrentActivityViewCell
         
-        cell.backgroundColor = UIColor.lightGrayColor()
+        //cell.backgroundColor = UIColor.lightGrayColor()
         //cell.categoryLabel.text = "Category"
+        
+        
+        cell.budgetAmountRemaining.transform = CGAffineTransformMakeRotation((CGFloat(-90) / CGFloat(180.0) * CGFloat(M_PI)))
+        
+        cell.budgetAmountRemaining.layer.cornerRadius = 15
+        
+        cell.budgetAmountRemaining.clipsToBounds = true
+        //cell.budgetAmountRemaining.
         
         return cell
     }
