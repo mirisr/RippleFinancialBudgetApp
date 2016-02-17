@@ -17,7 +17,7 @@ class Category: NSObject
     var id: String?
     var name: String?
     var budgetAmount: Double?
-    
+    var currentAmountSpent: Double?
     
     //empty constructor
     
@@ -34,6 +34,10 @@ class Category: NSObject
     
     func setID(id: String) {
         self.id = id
+    }
+    
+    func setAmountSpent(amount: Double) {
+        self.currentAmountSpent = amount
     }
     
     override var description: String

@@ -94,13 +94,33 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if ( indexPath.row != allCateogries.count) {
             
-            let myCell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CategoryCell")
+            //let myCell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "CategoryCell")
+            
+            let myCell = tableView.dequeueReusableCellWithIdentifier("CategoryCell", forIndexPath: indexPath) as! PlanViewCell
             
             // Get the category to be shown
             let category: Category = allCateogries[indexPath.row]
             
             print("Category::\(category.name!)")
             
+            // Make the Progress Bar Rounded
+            myCell.AmountAvailableBar.layer.cornerRadius = 10
+            myCell.AmountAvailableBar.clipsToBounds = true
+            
+            // Set the Budget Amount Label
+            let budgetAmountStr = String(format: "%.02f", category.budgetAmount!)
+            myCell.BudgetAmountLabel.text = "$\(budgetAmountStr)"
+            
+            // Set Category Name Label
+            myCell.CategoryNameLabel.text = category.name!
+            myCell.CategoryNameLabel.layer.zPosition = 1
+            
+            // Set the Progress to the Category (Amount Available)
+            let amountAvailable = category.budgetAmount! - category.currentAmountSpent!
+            let percentageAvailable = amountAvailable / category.budgetAmount!
+            myCell.AmountAvailableBar.setProgress(Float(percentageAvailable), animated: true)
+            
+            /*
             // Get references to labels of cell
             myCell.textLabel!.text = category.name!
             myCell.textLabel!.font = UIFont(name: "Helvetica Neue", size: 14.0)
@@ -116,7 +136,7 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             let budgetAmountStr = String(format: "%.02f", category.budgetAmount!)
             newLabel.text = "$\(budgetAmountStr)"
-            
+            */
             return myCell
             
         } else {

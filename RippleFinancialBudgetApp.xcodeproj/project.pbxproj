@@ -16,6 +16,7 @@
 		EB72D2771C70055B00A08EAD /* CurrentActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72D2761C70055B00A08EAD /* CurrentActivityCell.swift */; };
 		EB9F1A7C1C6AAE0B00406FE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9F1A7B1C6AAE0B00406FE0 /* LoginViewController.swift */; };
 		EBA437B61C69BD1300B6BDA4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA437B51C69BD1300B6BDA4 /* CreateAccountViewController.swift */; };
+		EBBE23E21C74EC180089B712 /* PlanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBE23E11C74EC180089B712 /* PlanViewCell.swift */; };
 		EBD94A401C69AFEB00EE12F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD94A3F1C69AFEB00EE12F1 /* AppDelegate.swift */; };
 		EBD94A421C69AFEB00EE12F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD94A411C69AFEB00EE12F1 /* ViewController.swift */; };
 		EBD94A451C69AFEB00EE12F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBD94A431C69AFEB00EE12F1 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		EB72D2761C70055B00A08EAD /* CurrentActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentActivityCell.swift; sourceTree = "<group>"; };
 		EB9F1A7B1C6AAE0B00406FE0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EBA437B51C69BD1300B6BDA4 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		EBBE23E11C74EC180089B712 /* PlanViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanViewCell.swift; sourceTree = "<group>"; };
 		EBD94A3C1C69AFEB00EE12F1 /* RippleFinancialBudgetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RippleFinancialBudgetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD94A3F1C69AFEB00EE12F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBD94A411C69AFEB00EE12F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				EB4652B81C6BF83A00C20577 /* Category.swift */,
 				EB72D2761C70055B00A08EAD /* CurrentActivityCell.swift */,
+				EBBE23E11C74EC180089B712 /* PlanViewCell.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				EBD94A421C69AFEB00EE12F1 /* ViewController.swift in Sources */,
 				EB102A431C6ACF9B00943AB9 /* PlanViewController.swift in Sources */,
 				EB72D2771C70055B00A08EAD /* CurrentActivityCell.swift in Sources */,
+				EBBE23E21C74EC180089B712 /* PlanViewCell.swift in Sources */,
 				EB6772581C6F136B0003EFB7 /* EditCategoriesService.swift in Sources */,
 				EBD94A401C69AFEB00EE12F1 /* AppDelegate.swift in Sources */,
 				EB72D2751C6FFA3F00A08EAD /* CurrentActivityViewController.swift in Sources */,

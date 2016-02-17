@@ -114,5 +114,56 @@ public function deleteCategory($userID, $categoryID)
 
 }
 
+/*
+public function getAmountSpentInEachCategory($userID, $month, $year)
+{
+    
+    
+    $statement = $this->conn->prepare($sql);
+
+    if (!$statement)
+        throw new Exception($statement->error);
+
+    //$statement->bind_param("iiss", $userID, $categoryID, $month, $year);
+    $returnValue = $statement->execute();
+
+    return $returnValue;
+}
+
+
+
+  (select C.CategoryID, C.CategoryName, C.UserID, C.BudgetAmount, sum(T.Amount) as Amount_Spent 
+
+from AssignedTransactions as AT
+
+join Transactions as T
+on AT.TransactionID = T.TransactionID 
+
+join Categories as C
+on C.UserID = T.UserID
+and C.CategoryID = AT.CategoryID
+
+where extract(month from T.TransactionDate) = '2' and extract(year from T.TransactionDate) = '2016' and C.UserID = 13
+group by C.CategoryID
+)
+Union
+(
+
+   
+    select C.CategoryID, C.CategoryName, C.UserID, C.BudgetAmount, 0 as Amount_Spent
+    from Categories as C
+    
+    where C.CategoryID not in
+    (
+        select CategoryID
+        from AssignedTransactions as AT
+        
+        
+    )and C.UserID = 13
+
+
+)
+*/
+
 }
 ?>

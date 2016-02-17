@@ -91,7 +91,7 @@ class DownloadCategoriesService: NSObject, NSURLSessionDataDelegate {
             
             for json in anyObj as! Array<AnyObject> {
                 
-                var category:Category = Category()
+                let category:Category = Category()
                 
                 category.name = (json["CategoryName"] as AnyObject? as? String) ?? "" // to get rid of null
                 
@@ -105,7 +105,11 @@ class DownloadCategoriesService: NSObject, NSURLSessionDataDelegate {
                 //print ("CATEGORY ID:\(categoryID)")
                 
                 category.setID(categoryID)
-                //print("budget amount: \(category.budgetAmount!)")
+                
+                let categoryAmountSpentStr = (json["AmountSpent"] as AnyObject? as? String) ?? ""
+                
+                category.setAmountSpent((Double)(categoryAmountSpentStr)!)
+                //print("Spent amount: \(category.currentAmountSpent!)")
                 
                 allCategories.append(category)
             }
