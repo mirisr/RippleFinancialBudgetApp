@@ -63,7 +63,9 @@ class CurrentActivityViewController: UIViewController , UICollectionViewDelegate
         // Set the Progress to the Category (Amount Available)
         let amountAvailable = category.budgetAmount! - category.currentAmountSpent!
         let percentageAvailable = amountAvailable / category.budgetAmount!
-        cell.budgetAmountRemaining.setProgress(Float(percentageAvailable), animated: true)
+        cell.budgetAmountRemaining.setProgress(Float(percentageAvailable), animated: false)
+        
+        cell.budgetAmountRemaining.progressTintColor = UIColorFromRGB(0x0099CC)
         
         return cell
     }
@@ -75,5 +77,14 @@ class CurrentActivityViewController: UIViewController , UICollectionViewDelegate
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }

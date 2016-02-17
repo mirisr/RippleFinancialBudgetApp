@@ -118,7 +118,9 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // Set the Progress to the Category (Amount Available)
             let amountAvailable = category.budgetAmount! - category.currentAmountSpent!
             let percentageAvailable = amountAvailable / category.budgetAmount!
-            myCell.AmountAvailableBar.setProgress(Float(percentageAvailable), animated: true)
+            myCell.AmountAvailableBar.setProgress(Float(percentageAvailable), animated: false)
+            
+            
             
             /*
             // Get references to labels of cell
