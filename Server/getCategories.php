@@ -5,7 +5,7 @@ require("Conn.php");
 require("MySQLDao.php");
 
 $userID = htmlentities($_POST["UserID"]);
-$month = date('m');
+$month = htmlentities($_POST["Month"]);
 $year = date('Y');
 
 

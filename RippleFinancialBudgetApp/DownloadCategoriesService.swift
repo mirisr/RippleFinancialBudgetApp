@@ -24,6 +24,18 @@ class DownloadCategoriesService: NSObject, NSURLSessionDataDelegate {
     
     let urlPath: String = "http://ripple-financial.com/getCategories.php"
     
+    let months: [String] = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
+    
+    
+    
+    func getCurrentMonth() {
+        
+        let date = NSDate()
+        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: date)
+        let month = components.month
+        
+        print (month)
+    }
     
     func downloadCategories() {
         

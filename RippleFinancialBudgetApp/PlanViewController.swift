@@ -13,7 +13,7 @@ class PlanViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Properties
     
     var allCateogries: Array<Category> = Array<Category>()
-    //var selectedCateogry : Category = Category()
+    //var
     
     @IBOutlet weak var listCategoriesView: UITableView!
     
